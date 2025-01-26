@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Rent Spot - Find your perfect rental property in Phnom Penh. Browse condos, apartments, and rooms." />
+  <title>Rent Spot</title>
+  <link rel="stylesheet" href="Homepage.css" />
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="Homepage.html" class="home-icon">🏠</a>
+    <h1>Rent Spot</h1>
+    <div class="nav-right">
+      <a href="signup.html" class="nav-link">Sign In / Register</a>
+      <a href="Favourite.html" class="nav-link">Favorite
+      </a>
+      <a href="AboutUs.html" class="nav-link">About Us</a>
+    </div>
+  </nav>
+  <!-- Map Modal -->
+  <div class="modal" id="mapModal">
+    <div class="modal-content map-modal">
+      <button class="close-button" aria-label="Close map" id="closeMapModal">
+        &times;
+      </button>
+      <h2>Map View</h2>
+      <div class="full-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125239.33772514812!2d104.81075235728634!3d11.579822773473668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0x9c010ee85ab525bb!2sPhnom%20Penh!5e0!3m2!1sen!2skh!4v1705139743736!5m2!1sen!2skh"
+          width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Home Section -->
+    <div class="section" id="home">
+      <h1>Rent Spot</h1>
+      <p>Rent with confidence and safety</p>
+      <div class="search-container">
+        <input type="text" placeholder="Search..." />
+        <button class="map-button" id="showMapBtn" aria-label="Show map">
+          <img src="Pictures/map-icon.png" alt="Map icon" class="map-icon" />
+        </button>
+      </div>
+    </div>
+    <!-- Types of Rental Room Section -->
+    <div class="section" id="types">
+      <h2>Types of Rental Room</h2>
+      <p>
+        Located in Phnom Penh, this website helps users find rooms by budget
+        and preferences through an easy, map-based search.
+      </p>
+      <div class="rental-options">
+        <div>
+          <a href="Condo.html"><img src="Pictures/Condo.jpg" alt="Condo" />
+            <h3>Condo</h3>
+            <p>
+              Experience luxury living with a variety of modern condos.
+            </p>
+          </a>
+        </div>
+        <div>
+          <a href="Apartment.html"><img src="Pictures/Apartment.jpg" alt="Apartment" />
+            <h3>Apartment</h3>
+            <p>Comfortable apartments in prime locations.</p>
+          </a>
+        </div>
+        <div>
+          <a href="Room.html"><img src="Pictures/Room.jpg" alt="Room" />
+            <h3>Room</h3>
+            <p>Affordable rooms for students and professionals.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section" id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        Email:
+        <a href="mailto:rentspot168@gmail.com">rentspot168@gmail.com</a>
+      </p>
+      <p>Phone: <a href="tel:+855964568972">+855 964 568 972</a></p>
+    </div>
+  </div>
+  <script>
+    // Map Modal Script
+    const mapModal = document.getElementById("mapModal");
+    const showMapBtn = document.getElementById("showMapBtn");
+    const closeMapBtn = document.getElementById("closeMapModal");
+
+    showMapBtn.addEventListener("click", () => {
+      mapModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    closeMapBtn.addEventListener("click", () => {
+      mapModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+
+    mapModal.addEventListener("click", (e) => {
+      if (e.target === mapModal) {
+        mapModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Close modals with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (mapModal.classList.contains("active")) {
+          mapModal.classList.remove("active");
+        }
+        document.body.style.overflow = "";
+      }
+    });
+  </script>
+</body>
+
+</html>

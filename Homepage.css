@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Top Header Styles */
+.top-header {
+    background-color: white;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.home-icon {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: #4caf50;
+}
+
+.favorite-link {
+    position: relative;
+}
+
+.favorite-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1010;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: gainsboro;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    animation: modalSlide 0.3s ease-out;
+}
+
+@keyframes modalSlide {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.modal p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    overflow: auto;
+    margin-top: 60px;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Home Section */
+#home {
+    position: relative;
+    background: url('Pictures/Bedroom.jpg') center/cover no-repeat;
+    padding: 100px 20px;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+#home p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#home input {
+    width: 80%;
+    max-width: 500px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+#home input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+/* Types Section */
+#types {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+}
+
+#types h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#types p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.rental-options {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.rental-options div {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    padding: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.rental-options a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rental-options div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rental-options img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.rental-options h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.rental-options p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 15px 15px;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#contact a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .navbar h1 {
+        font-size: 1.2rem;
+    }
+    
+    #home h1 {
+        font-size: 2.5rem;
+    }
+    
+    #home p {
+        font-size: 1.2rem;
+    }
+    
+    .header-right {
+        gap: 15px;
+    }
+    
+    .container {
+        margin-top: 60px;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}
+
+/* New Styles Added */
+
+/* Search Container for Location Input */
+.search-container {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 15px 45px 15px 15px; /* Added right padding for the button */
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Map Button */
+.map-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Map Icon */
+.map-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.map-button:hover .map-icon {
+    opacity: 1;
+}
+
+/* Map Modal Styles */
+.map-modal {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    padding: 20px;
+}
+
+.full-map {
+    width: 100%;
+    height: calc(100% - 60px); /* Subtract the height of the header */
+    margin-top: 20px;
+}
+
+/* Responsive Map Modal Adjustments */
+@media (max-width: 768px) {
+    .map-modal {
+        width: 95%;
+        height: 90vh;
+    }
+}
